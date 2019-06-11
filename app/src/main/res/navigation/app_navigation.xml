@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/listBillFragment">
+
+    <fragment
+        android:id="@+id/listBillFragment"
+        android:name="com.vortex.billreminder.presentation.bill_list.ListBillFragment"
+        android:label="list_bill_fragment"
+        tools:layout="@layout/list_bill_fragment">
+        <action
+            android:id="@+id/action_listBillFragment_to_addBillFragment"
+            app:destination="@id/addBillFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/addBillFragment"
+        android:name="com.vortex.billreminder.presentation.add_bill.AddBillFragment"
+        android:label="add_bill_fragment"
+        tools:layout="@layout/add_bill_fragment"/>
+</navigation>
