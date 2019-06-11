@@ -1,7 +1,6 @@
 package com.vortex.billreminder.presentation.add_bill
 
-import androidx.lifecycle.ViewModel
+import com.vortex.billreminder.util.BaseViewModel
 
-class AddBillViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class AddBillViewModel : BaseViewModel() {
 }

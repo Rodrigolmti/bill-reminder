@@ -8,26 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.vortex.billreminder.R
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class AddBillFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = AddBillFragment()
-    }
-
-    private lateinit var viewModel: AddBillViewModel
+    private val viewModel by viewModel<AddBillViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.add_bill_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(AddBillViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }

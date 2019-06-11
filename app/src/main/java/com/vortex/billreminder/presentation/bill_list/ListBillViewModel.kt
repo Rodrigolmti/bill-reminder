@@ -1,7 +1,11 @@
 package com.vortex.billreminder.presentation.bill_list
 
-import androidx.lifecycle.ViewModel
+import com.vortex.billreminder.domain.use_case.GetListOfBillUseCase
+import com.vortex.billreminder.util.BaseViewModel
 
-class ListBillViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class ListBillViewModel(
+    private val getListOfBillUseCase: GetListOfBillUseCase
+) : BaseViewModel() {
+
+
 }
