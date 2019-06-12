@@ -7,5 +7,5 @@ sealed class Result<out T : Any> {
 
 abstract class BaseUseCase<out T : Any> {
 
-    abstract operator fun invoke(): Result<T>
+    abstract suspend operator fun invoke(): Result<T>
 }

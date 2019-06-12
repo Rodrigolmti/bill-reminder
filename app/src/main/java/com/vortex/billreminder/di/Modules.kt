@@ -11,7 +11,7 @@ import org.koin.dsl.module.module
 
 val dataModule: Module = module {
     single { BillRepositoryImpl() as BillRepository }
-    factory { GetListOfBillUseCase() }
+    factory { GetListOfBillUseCase(get()) }
 }
 
 val viewModelModule: Module = module {
