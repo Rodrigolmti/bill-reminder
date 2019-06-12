@@ -34,7 +34,7 @@ class BillRepositoryImpl : BillRepository {
         }
     }
 
-    override suspend fun removeBill(bill: Bill): Result<Bill> = withContext(Dispatchers.IO) {
+    override suspend fun deleteBill(bill: Bill): Result<Bill> = withContext(Dispatchers.IO) {
         suspendCoroutine<Result<Bill>> { continuation ->
             try {
 

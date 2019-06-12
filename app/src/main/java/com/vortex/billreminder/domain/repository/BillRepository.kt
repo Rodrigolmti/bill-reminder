@@ -9,7 +9,7 @@ interface BillRepository {
 
     suspend fun addBill(bill: Bill): Result<Bill>
 
-    suspend fun removeBill(bill: Bill): Result<Bill>
+    suspend fun deleteBill(bill: Bill): Result<Bill>
 
     suspend fun updateBill(bill: Bill): Result<Bill>
 }
