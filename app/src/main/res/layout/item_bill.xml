@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glItemBillNameStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/item_margin_start"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glItemBillNameEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/item_margin_start"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glItemBillNameBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/item_margin_bottom"/>
+
+    <TextView
+        android:id="@+id/tvItemBillName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_margin_top"
+        app:layout_constraintEnd_toStartOf="@id/tvItemBillValue"
+        app:layout_constraintStart_toStartOf="@id/glItemBillNameStart"
+        android:textAppearance="@style/Text.Title"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Netflix"/>
+
+    <TextView
+        android:id="@+id/tvItemBillCategory"
+        android:layout_width="0dp"
+        android:textAppearance="@style/Text.Headline"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/field_margin_top_xxsmall"
+        app:layout_constraintEnd_toStartOf="@id/tvItemBillValue"
+        app:layout_constraintStart_toStartOf="@id/glItemBillNameStart"
+        app:layout_constraintTop_toBottomOf="@id/tvItemBillName"
+        tools:text="Electronics"/>
+
+    <TextView
+        android:id="@+id/tvItemBillValue"
+        android:layout_width="wrap_content"
+        android:textAppearance="@style/Text.Body"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/vwdItemBillValue"
+        app:layout_constraintEnd_toEndOf="@id/glItemBillNameEnd"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="R$102,58"/>
+
+    <View
+        android:id="@+id/vwdItemBillValue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divisor_height"
+        android:layout_marginTop="@dimen/field_margin_top_small"
+        android:background="@color/geyser"
+        app:layout_constraintTop_toBottomOf="@id/tvItemBillCategory"/>
+
+    <TextView
+        android:id="@+id/tvItemBillDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Text.Body"
+        android:layout_marginTop="@dimen/field_margin_top_xsmall"
+        app:layout_constraintEnd_toStartOf="@id/tvItemBillValue"
+        app:layout_constraintStart_toStartOf="@id/glItemBillNameStart"
+        app:layout_constraintTop_toBottomOf="@id/vwdItemBillValue"
+        app:layout_constraintBottom_toTopOf="@id/glItemBillNameBottom"
+        tools:text="Jun 15, 2019"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
