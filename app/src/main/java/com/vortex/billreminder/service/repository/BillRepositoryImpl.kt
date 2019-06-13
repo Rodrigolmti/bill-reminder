@@ -2,7 +2,7 @@ package com.vortex.billreminder.service.repository
 
 import com.vortex.billreminder.domain.model.Bill
 import com.vortex.billreminder.domain.repository.BillRepository
-import com.vortex.billreminder.util.Result
+import com.vortex.billreminder.domain.Result
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlin.coroutines.resumeWithException

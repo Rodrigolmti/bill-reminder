@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="BillInputTextField">
+        <attr name="inputLabel" format="string"/>
+        <attr name="inputHint" format="string"/>
+        <attr name="inputValue" format="string"/>
+        <attr name="inputError" format="string"/>
+    </declare-styleable>
+
+</resources>

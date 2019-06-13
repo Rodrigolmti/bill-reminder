@@ -1,7 +1,7 @@
 package com.vortex.billreminder.domain.repository
 
 import com.vortex.billreminder.domain.model.Bill
-import com.vortex.billreminder.util.Result
+import com.vortex.billreminder.domain.Result
 
 interface BillRepository {
 

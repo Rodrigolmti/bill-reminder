@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.add_bill.AddBillFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="add"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glAddBillStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/screen_margin_start"/>
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glAddBillTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/screen_margin_top"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glAddBillEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/screen_margin_end"/>
+
+    <com.vortex.billreminder.ui_kit.BillInputTextField
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:inputError="Your animal"
+        app:inputHint="Inform a description for your bill"
+        app:inputLabel="Description"
+        app:layout_constraintEnd_toEndOf="@id/glAddBillEnd"
+        app:layout_constraintStart_toEndOf="@id/glAddBillStart"
+        app:layout_constraintTop_toBottomOf="@id/glAddBillTop"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
