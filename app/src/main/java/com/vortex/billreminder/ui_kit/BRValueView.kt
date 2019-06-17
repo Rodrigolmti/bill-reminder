@@ -1,6 +1,7 @@
 package com.vortex.billreminder.ui_kit
 
 import android.content.Context
+import android.text.InputFilter
 import android.text.InputType
 import android.util.AttributeSet
 import android.view.View
@@ -9,13 +10,13 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
-import com.vortex.billreminder.util.MoneyMaskWatcher
-import com.vortex.billreminder.util.safeSetTextAppearance
-import android.text.InputFilter
 import com.vortex.billreminder.R
+import com.vortex.billreminder.util.MoneyMaskWatcher
+import com.vortex.billreminder.util.brlCurrency
+import com.vortex.billreminder.util.safeSetTextAppearance
 
 //TODO Fix divisor size
-class BillValueView : ConstraintLayout {
+class BRValueView : ConstraintLayout {
 
     private lateinit var textViewLabel: TextView
     private lateinit var editTextValue: EditText
@@ -51,14 +52,12 @@ class BillValueView : ConstraintLayout {
         editTextValue.addTextChangedListener(MoneyMaskWatcher.getBRFormatter(editTextValue))
 
         attrs?.apply {
+            val typedArray = context.obtainStyledAttributes(this, R.styleable.BRValueView)
 
-            val typedArray = context.obtainStyledAttributes(this, R.styleable.BillValueView)
-
-            label = typedArray.getString(R.styleable.BillValueView_valueLabel)
-            hint = typedArray.getString(R.styleable.BillValueView_valueHint)
+            label = typedArray.getString(R.styleable.BRValueView_valueLabel)
+            hint = typedArray.getString(R.styleable.BRValueView_valueHint)
 
             typedArray.recycle()
-
         }
     }
 
@@ -66,6 +65,13 @@ class BillValueView : ConstraintLayout {
         get() = textViewLabel.text.toString()
         set(text) {
             takeIf { !text.isNullOrEmpty() }?.run { textViewLabel.text = text }
+            field = text
+        }
+
+    var value: Double? = null
+        get() = MoneyMaskWatcher.doubleValue(editTextValue.text.toString())
+        set(text) {
+            editTextValue.setText(value?.brlCurrency)
             field = text
         }
 
@@ -116,7 +122,7 @@ class BillValueView : ConstraintLayout {
     private fun setupConstraints() {
         val set = ConstraintSet()
         set.apply {
-            clone(this@BillValueView)
+            clone(this@BRValueView)
 
             connect(textViewLabel.id, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM)
             connect(textViewLabel.id, ConstraintSet.END, editTextValue.id, ConstraintSet.START)
@@ -140,7 +146,7 @@ class BillValueView : ConstraintLayout {
             connect(divisor.id, ConstraintSet.END, editTextValue.id, ConstraintSet.END)
             connect(divisor.id, ConstraintSet.TOP, editTextValue.id, ConstraintSet.BOTTOM)
 
-            applyTo(this@BillValueView)
+            applyTo(this@BRValueView)
         }
     }
 }

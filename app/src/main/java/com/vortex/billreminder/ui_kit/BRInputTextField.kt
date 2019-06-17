@@ -1,9 +1,12 @@
 package com.vortex.billreminder.ui_kit
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -11,12 +14,14 @@ import androidx.core.content.ContextCompat
 import com.vortex.billreminder.R
 import com.vortex.billreminder.util.getSizeInDp
 import com.vortex.billreminder.util.safeSetTextAppearance
+import com.vortex.billreminder.util.toFormattedString
+import java.util.*
 
-class BillInputTextField : ConstraintLayout {
+class BRInputTextField : ConstraintLayout {
 
     private lateinit var textViewLabel: TextView
-    private lateinit var  editText: EditText
-    private lateinit var  textViewError: TextView
+    private lateinit var editText: EditText
+    private lateinit var textViewError: TextView
 
     constructor(context: Context) : super(context) {
         setupView()
@@ -41,11 +46,16 @@ class BillInputTextField : ConstraintLayout {
         setupConstraints()
 
         attrs?.apply {
-            val typedArray = context.obtainStyledAttributes(this, R.styleable.BillInputTextField)
+            val typedArray = context.obtainStyledAttributes(this, R.styleable.BRInputTextField)
 
-            label = typedArray.getString(R.styleable.BillInputTextField_inputLabel)
-            hint = typedArray.getString(R.styleable.BillInputTextField_inputHint)
-            error = typedArray.getString(R.styleable.BillInputTextField_inputError)
+            label = typedArray.getString(R.styleable.BRInputTextField_inputLabel)
+            hint = typedArray.getString(R.styleable.BRInputTextField_inputHint)
+            error = typedArray.getString(R.styleable.BRInputTextField_inputError)
+            when (typedArray.getInt(R.styleable.BRInputTextField_inputType, 0)) {
+                1 -> {
+                    setupCalendar()
+                }
+            }
 
             typedArray.recycle()
         }
@@ -75,7 +85,9 @@ class BillInputTextField : ConstraintLayout {
                 getSizeInDp(R.dimen.margin_xsmall),
                 getSizeInDp(R.dimen.margin_xsmall)
             )
+            imeOptions = EditorInfo.IME_ACTION_NEXT
             id = R.id.etBillInputTextFieldField
+            maxLines = 1
         }
         addView(editText, params)
     }
@@ -99,7 +111,7 @@ class BillInputTextField : ConstraintLayout {
     private fun setupConstraints() {
         val set = ConstraintSet()
         set.apply {
-            clone(this@BillInputTextField)
+            clone(this@BRInputTextField)
 
             connect(textViewLabel.id, ConstraintSet.START, ConstraintSet.PARENT_ID, ConstraintSet.START)
             connect(textViewLabel.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
@@ -111,7 +123,32 @@ class BillInputTextField : ConstraintLayout {
             connect(textViewError.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END)
             connect(textViewError.id, ConstraintSet.TOP, editText.id, ConstraintSet.BOTTOM)
 
-            applyTo(this@BillInputTextField)
+            applyTo(this@BRInputTextField)
+        }
+    }
+
+    private fun setupCalendar() {
+        editText.setCompoundDrawablesWithIntrinsicBounds(null, null, ContextCompat.getDrawable(context, R.drawable.ic_calendar), null)
+        editText.isFocusable = false
+        editText.isClickable = true
+
+        editText.setOnClickListener {
+            val calendar = Calendar.getInstance()
+            val datePickerDialog = DatePickerDialog(
+                context,
+                DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
+                    val selectedCalendar = Calendar.getInstance().apply { set(year, month, dayOfMonth) }
+                    editText.setText(selectedCalendar.time.toFormattedString())
+                    date = selectedCalendar.time
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            )
+
+            datePickerDialog.datePicker.minDate = Date().time
+
+            datePickerDialog.show()
         }
     }
 
@@ -121,6 +158,8 @@ class BillInputTextField : ConstraintLayout {
             textViewLabel.text = text
             field = text
         }
+
+    var date: Date? = null
 
     var hint: String? = null
         get() = editText.hint.toString()

@@ -5,6 +5,7 @@
     <item name="tvBillInputTextFieldLabel" type="id"/>
     <item name="etBillInputTextFieldField" type="id"/>
     <item name="tvBillInputTextFieldError" type="id"/>
+    <item name="ivBillInputTextFieldImage" type="id"/>
 
     //ValueView
     <item name="tvBillValueLabel" type="id"/>

@@ -6,7 +6,10 @@
 
     <string name="add_bill_description_hint">Inform a description for your bill</string>
     <string name="add_bill_description_label">Description</string>
-    <string name="add_bill_date_hint">Inform the due date of the bill</string>
+    <string name="add_bill_date_hint">00/00/0000</string>
     <string name="add_bill_date_label">Due date</string>
+    <string name="add_bill_category_hint">Select a category for your bill</string>
+    <string name="add_bill_category_label">Category</string>
+    <string name="add_bill_create">Create</string>
 
 </resources>

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:fillViewport="true"
     tools:context=".presentation.add_bill.AddBillFragment">
 
@@ -33,7 +34,7 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="@dimen/screen_margin_end"/>
 
-        <com.vortex.billreminder.ui_kit.BillValueView
+        <com.vortex.billreminder.ui_kit.BRValueView
             android:id="@+id/bvvAddBillValue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -41,7 +42,7 @@
             app:layout_constraintStart_toEndOf="@id/glAddBillStart"
             app:layout_constraintTop_toBottomOf="@id/glAddBillTop"/>
 
-        <com.vortex.billreminder.ui_kit.BillInputTextField
+        <com.vortex.billreminder.ui_kit.BRInputTextField
             android:id="@+id/bitAddBillDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -52,36 +53,38 @@
             app:layout_constraintStart_toEndOf="@id/glAddBillStart"
             app:layout_constraintTop_toBottomOf="@id/bvvAddBillValue"/>
 
-        <com.vortex.billreminder.ui_kit.BillInputTextField
+        <com.vortex.billreminder.ui_kit.BRInputTextField
             android:id="@+id/bitAddBillDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/field_margin_top_small"
             app:inputHint="@string/add_bill_date_hint"
             app:inputLabel="@string/add_bill_date_label"
+            app:inputType="1"
             app:layout_constraintEnd_toEndOf="@id/glAddBillEnd"
             app:layout_constraintStart_toEndOf="@id/glAddBillStart"
             app:layout_constraintTop_toBottomOf="@id/bitAddBillDescription"/>
 
-        <com.vortex.billreminder.ui_kit.BillInputTextField
+        <com.vortex.billreminder.ui_kit.BRInputTextField
             android:id="@+id/bitAddBillCategory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/field_margin_top_small"
-            app:inputHint="Select a category for your bill"
-            app:inputLabel="Category"
+            app:inputHint="@string/add_bill_category_hint"
+            app:inputLabel="@string/add_bill_category_label"
             app:layout_constraintEnd_toEndOf="@id/glAddBillEnd"
             app:layout_constraintStart_toEndOf="@id/glAddBillStart"
             app:layout_constraintTop_toBottomOf="@id/bitAddBillDate"/>
 
         <Button
+            android:id="@+id/btAddBill"
             style="@style/Button.Primary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/button_margin_top"
             android:layout_marginBottom="@dimen/button_margin_bottom"
+            android:text="@string/add_bill_create"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:text="Create"
             app:layout_constraintEnd_toStartOf="@+id/glAddBillEnd"
             app:layout_constraintStart_toStartOf="@+id/glAddBillStart"
             app:layout_constraintTop_toBottomOf="@+id/bitAddBillCategory"

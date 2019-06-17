@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="BillInputTextField">
+    <declare-styleable name="BRInputTextField">
         <attr name="inputLabel" format="string"/>
         <attr name="inputHint" format="string"/>
         <attr name="inputValue" format="string"/>
         <attr name="inputError" format="string"/>
+        <attr name="inputType" format="integer"/>
     </declare-styleable>
 
-    <declare-styleable name="BillValueView">
+    <declare-styleable name="BRValueView">
         <attr name="valueLabel" format="string"/>
         <attr name="valueHint" format="string"/>
     </declare-styleable>

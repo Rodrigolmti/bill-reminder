@@ -4,7 +4,9 @@ import android.util.TypedValue
 import android.view.View
 import android.os.Build
 import android.widget.TextView
-
+import java.text.DecimalFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 fun View.getSizeInDp(metric: Int): Int {
     val resources = context.resources
@@ -22,3 +24,9 @@ fun TextView.safeSetTextAppearance(resId: Int) {
         setTextAppearance(resId)
     }
 }
+
+fun Date.toFormattedString(): String {
+    return SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(this)
+}
+
+inline val Double.brlCurrency: String get() = DecimalFormat("#,###,##0.00").format(this)
