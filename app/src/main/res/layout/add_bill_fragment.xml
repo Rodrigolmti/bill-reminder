@@ -1,41 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".presentation.add_bill.AddBillFragment">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/glAddBillStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/screen_margin_start"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/glAddBillTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="@dimen/screen_margin_top"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glAddBillStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/screen_margin_start"/>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/glAddBillEnd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="@dimen/screen_margin_end"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glAddBillTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/screen_margin_top"/>
 
-    <com.vortex.billreminder.ui_kit.BillInputTextField
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:inputError="Your animal"
-        app:inputHint="Inform a description for your bill"
-        app:inputLabel="Description"
-        app:layout_constraintEnd_toEndOf="@id/glAddBillEnd"
-        app:layout_constraintStart_toEndOf="@id/glAddBillStart"
-        app:layout_constraintTop_toBottomOf="@id/glAddBillTop"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glAddBillEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/screen_margin_end"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.vortex.billreminder.ui_kit.BillValueView
+            android:id="@+id/bvvAddBillValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/glAddBillEnd"
+            app:layout_constraintStart_toEndOf="@id/glAddBillStart"
+            app:layout_constraintTop_toBottomOf="@id/glAddBillTop"/>
+
+        <com.vortex.billreminder.ui_kit.BillInputTextField
+            android:id="@+id/bitAddBillDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/field_margin_top_small"
+            app:inputHint="@string/add_bill_description_hint"
+            app:inputLabel="@string/add_bill_description_label"
+            app:layout_constraintEnd_toEndOf="@id/glAddBillEnd"
+            app:layout_constraintStart_toEndOf="@id/glAddBillStart"
+            app:layout_constraintTop_toBottomOf="@id/bvvAddBillValue"/>
+
+        <com.vortex.billreminder.ui_kit.BillInputTextField
+            android:id="@+id/bitAddBillDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/field_margin_top_small"
+            app:inputHint="@string/add_bill_date_hint"
+            app:inputLabel="@string/add_bill_date_label"
+            app:layout_constraintEnd_toEndOf="@id/glAddBillEnd"
+            app:layout_constraintStart_toEndOf="@id/glAddBillStart"
+            app:layout_constraintTop_toBottomOf="@id/bitAddBillDescription"/>
+
+        <com.vortex.billreminder.ui_kit.BillInputTextField
+            android:id="@+id/bitAddBillCategory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/field_margin_top_small"
+            app:inputHint="Select a category for your bill"
+            app:inputLabel="Category"
+            app:layout_constraintEnd_toEndOf="@id/glAddBillEnd"
+            app:layout_constraintStart_toEndOf="@id/glAddBillStart"
+            app:layout_constraintTop_toBottomOf="@id/bitAddBillDate"/>
+
+        <Button
+            style="@style/Button.Primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/button_margin_top"
+            android:layout_marginBottom="@dimen/button_margin_bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Create"
+            app:layout_constraintEnd_toStartOf="@+id/glAddBillEnd"
+            app:layout_constraintStart_toStartOf="@+id/glAddBillStart"
+            app:layout_constraintTop_toBottomOf="@+id/bitAddBillCategory"
+            app:layout_constraintVertical_bias="1.0"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -1,3 +1,12 @@
 <resources>
+
     <string name="app_name">Bill reminder</string>
+
+    <string name="general_currency">R$</string>
+
+    <string name="add_bill_description_hint">Inform a description for your bill</string>
+    <string name="add_bill_description_label">Description</string>
+    <string name="add_bill_date_hint">Inform the due date of the bill</string>
+    <string name="add_bill_date_label">Due date</string>
+
 </resources>

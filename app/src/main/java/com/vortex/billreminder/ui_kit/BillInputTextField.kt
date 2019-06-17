@@ -14,9 +14,9 @@ import com.vortex.billreminder.util.safeSetTextAppearance
 
 class BillInputTextField : ConstraintLayout {
 
-    private val textViewLabel: TextView by lazy { TextView(context) }
-    private val editText: EditText by lazy { EditText(context) }
-    private val textViewError: TextView by lazy { TextView(context) }
+    private lateinit var textViewLabel: TextView
+    private lateinit var  editText: EditText
+    private lateinit var  textViewError: TextView
 
     constructor(context: Context) : super(context) {
         setupView()
@@ -52,6 +52,7 @@ class BillInputTextField : ConstraintLayout {
     }
 
     private fun setupLabel() {
+        textViewLabel = TextView(context)
         textViewLabel.apply {
             safeSetTextAppearance(R.style.TextAppearance_Caption_Bold)
             id = R.id.tvBillInputTextFieldLabel
@@ -60,6 +61,7 @@ class BillInputTextField : ConstraintLayout {
     }
 
     private fun setupEditText() {
+        editText = EditText(context)
         val params = LayoutParams(
             0,
             LayoutParams.WRAP_CONTENT
@@ -79,6 +81,7 @@ class BillInputTextField : ConstraintLayout {
     }
 
     private fun setupError() {
+        textViewError = TextView(context)
         val params = LayoutParams(
             LayoutParams.WRAP_CONTENT,
             LayoutParams.WRAP_CONTENT

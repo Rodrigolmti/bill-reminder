@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    //InputTextField
     <item name="tvBillInputTextFieldLabel" type="id"/>
     <item name="etBillInputTextFieldField" type="id"/>
     <item name="tvBillInputTextFieldError" type="id"/>
+
+    //ValueView
+    <item name="tvBillValueLabel" type="id"/>
+    <item name="tvBillValueEditText" type="id"/>
+    <item name="tvBillValueDivisor" type="id"/>
+
 </resources>

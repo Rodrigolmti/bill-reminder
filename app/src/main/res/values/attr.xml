@@ -8,4 +8,9 @@
         <attr name="inputError" format="string"/>
     </declare-styleable>
 
+    <declare-styleable name="BillValueView">
+        <attr name="valueLabel" format="string"/>
+        <attr name="valueHint" format="string"/>
+    </declare-styleable>
+
 </resources>

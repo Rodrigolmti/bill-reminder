@@ -33,6 +33,11 @@
     <dimen name="field_margin_top_xsmall">@dimen/margin_xsmall</dimen>
     <dimen name="field_margin_top_small">@dimen/margin_small</dimen>
 
+    <dimen name="button_margin_top">40dp</dimen>
+    <dimen name="button_margin_bottom">40dp</dimen>
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_radius">6dp</dimen>
+
     <dimen name="divisor_height">0.5dp</dimen>
 
 </resources>
