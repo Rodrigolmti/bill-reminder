@@ -25,6 +25,6 @@ val dataModule: Module = module {
 }
 
 val viewModelModule: Module = module {
-    viewModel { AddBillViewModel() }
+    viewModel { AddBillViewModel(get()) }
     viewModel { ListBillViewModel(get()) }
 }

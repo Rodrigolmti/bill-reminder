@@ -7,14 +7,12 @@ import java.util.*
 
 @Entity(tableName = "bill")
 data class Bill(
+    val value: Double?,
+    val description: String?,
+    val date: Date = Date()
+) {
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
-    @ColumnInfo(name = "value")
-    val value: Double,
-    @ColumnInfo(name = "description")
-    val description: String,
-    @ColumnInfo(name = "date")
-    val date: Date,
+    val id: Int = 0
     @ColumnInfo(name = "category_id")
-    val categoryId: Int
-)
+    val categoryId: Int = 0
+}
