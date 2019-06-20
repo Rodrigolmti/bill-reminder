@@ -10,13 +10,6 @@ class GetListOfBillUseCase(
 ) {
 
     suspend operator fun invoke(): Result<List<Bill>> {
-
-        val mock = listOf(
-            Bill(25.0, "Life insurance", Date()),
-            Bill(35.0, "Life bill", Date()),
-            Bill( 45.0, "Bill insurance", Date())
-        )
-
-        return Result.Success(mock)
+        return billRepository.getBillList()
     }
 }

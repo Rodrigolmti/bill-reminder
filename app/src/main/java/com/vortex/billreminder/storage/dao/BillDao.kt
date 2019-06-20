@@ -1,20 +1,22 @@
 package com.vortex.billreminder.storage.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Update
+import androidx.room.*
 import com.vortex.billreminder.domain.model.Bill
+import com.vortex.billreminder.storage.model.BillStorage
 
 @Dao
 interface BillDao {
 
     @Insert
-    fun insertBill(bill: Bill)
+    fun insert(bill: BillStorage)
 
     @Update
-    fun updateBill(bill: Bill)
+    fun update(bill: BillStorage)
 
     @Delete
-    fun deleteBill(bill: Bill)
+    fun delete(bill: BillStorage)
+
+    @Query("SELECT * FROM bill")
+    fun findAll() : List<BillStorage>
+
 }

@@ -34,19 +34,19 @@ class AddBillFragment : Fragment() {
             viewModel.addBill(bill)
         }
 
+        viewModel.addBillLiveData.observe(viewLifecycleOwner, Observer {
+
+        })
+
         viewModel.errorLiveData.observe(viewLifecycleOwner, Observer {
             it.contentIfNotHandled?.let { failure ->
                 when(failure) {
                     is AddBillUseCase.AddBillFailure -> {
-                        failure.errors.forEach { error ->
-                            when(error) {
-                                AddBillUseCase.AddBillFailure.ErrorType.INVALID_VALUE -> {
+                        if (failure.errors.contains(AddBillUseCase.AddBillFailure.ErrorType.INVALID_VALUE)) {
 
-                                }
-                                AddBillUseCase.AddBillFailure.ErrorType.INVALID_DESCRIPTION -> {
+                        }
+                        if (failure.errors.contains(AddBillUseCase.AddBillFailure.ErrorType.INVALID_DESCRIPTION)) {
 
-                                }
-                            }
                         }
                     }
                 }

@@ -15,7 +15,7 @@ import org.koin.dsl.module.Module
 import org.koin.dsl.module.module
 
 val dataModule: Module = module {
-    single { BillRepositoryImpl() as BillRepository }
+    single { BillRepositoryImpl(get()) as BillRepository }
     single { RoomDatabaseImpl(get()) as RoomDatabase }
 
     factory { GetListOfBillUseCase(get()) }
