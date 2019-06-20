@@ -6,7 +6,7 @@
 - Clean archtecture
 - Mvvm
 
-### lIBS
+### Libs
 - lifecycle
 - koin
 - android navigation
