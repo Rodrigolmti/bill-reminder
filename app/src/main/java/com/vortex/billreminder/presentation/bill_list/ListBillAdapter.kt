@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vortex.billreminder.R
 import com.vortex.billreminder.domain.model.Bill
+import com.vortex.billreminder.util.toBrazilianCurrencyString
+import com.vortex.billreminder.util.toBrazilianStringDate
 import kotlinx.android.synthetic.main.item_bill.view.*
 
 class ListBillAdapter : RecyclerView.Adapter<ListBillAdapter.ViewHolder>() {
@@ -37,8 +39,8 @@ class ListBillAdapter : RecyclerView.Adapter<ListBillAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Bill) {
             itemView.tvItemBillName.text = item.description
-            itemView.tvItemBillValue.text = item.value.toString()
-            itemView.tvItemBillDate.text = item.date.toString()
+            itemView.tvItemBillValue.text = item.value?.toBrazilianCurrencyString()
+            itemView.tvItemBillDate.text = item.date.toBrazilianStringDate()
         }
     }
 }

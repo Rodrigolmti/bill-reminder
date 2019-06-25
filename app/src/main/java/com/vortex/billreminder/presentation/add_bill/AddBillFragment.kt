@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.vortex.billreminder.R
 import com.vortex.billreminder.domain.model.Bill
 import com.vortex.billreminder.domain.use_case.AddBillUseCase
@@ -31,16 +32,18 @@ class AddBillFragment : Fragment() {
                 value = bvvAddBillValue.value,
                 description = bitAddBillDescription.value
             )
+            controlFieldInteraction(false)
             viewModel.addBill(bill)
         }
 
         viewModel.addBillLiveData.observe(viewLifecycleOwner, Observer {
-
+            findNavController().popBackStack()
         })
 
         viewModel.errorLiveData.observe(viewLifecycleOwner, Observer {
             it.contentIfNotHandled?.let { failure ->
-                when(failure) {
+                controlFieldInteraction(true)
+                when (failure) {
                     is AddBillUseCase.AddBillFailure -> {
                         if (failure.errors.contains(AddBillUseCase.AddBillFailure.ErrorType.INVALID_VALUE)) {
 
@@ -52,5 +55,13 @@ class AddBillFragment : Fragment() {
                 }
             }
         })
+    }
+
+    private fun controlFieldInteraction(enabled: Boolean) {
+        bitAddBillDescription.isEnabled = enabled
+        bitAddBillCategory.isEnabled = enabled
+        bvvAddBillValue.isEnabled = enabled
+        bitAddBillDate.isEnabled = enabled
+        btAddBill.isEnabled = enabled
     }
 }

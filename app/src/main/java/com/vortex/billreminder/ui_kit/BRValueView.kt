@@ -38,6 +38,13 @@ class BRValueView : ConstraintLayout {
         setupView(attrs)
     }
 
+    override fun isEnabled() = textViewLabel.isEnabled && editTextValue.isEnabled
+
+    override fun setEnabled(enabled: Boolean) {
+        textViewLabel.isEnabled = enabled
+        editTextValue.isEnabled = enabled
+    }
+
     private fun setupView(attrs: AttributeSet? = null) {
 
         layoutParams = LayoutParams(
@@ -87,6 +94,7 @@ class BRValueView : ConstraintLayout {
         textViewLabel.apply {
             text = context.getString(R.string.general_currency)
             safeSetTextAppearance(R.style.Currency)
+            setTextColor(ContextCompat.getColorStateList(context, R.color.color_selector_enabled_gray700_gray500))
             id = R.id.tvBillValueLabel
         }
         addView(textViewLabel)

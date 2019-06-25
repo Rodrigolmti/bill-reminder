@@ -5,6 +5,7 @@ import android.view.View
 import android.os.Build
 import android.widget.TextView
 import java.text.DecimalFormat
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -30,3 +31,16 @@ fun Date.toFormattedString(): String {
 }
 
 inline val Double.brlCurrency: String get() = DecimalFormat("#,###,##0.00").format(this)
+
+fun Double.toBrazilianCurrencyString(includeSymbol: Boolean = true): String {
+    return NumberFormat.getCurrencyInstance(Locale("pt", "BR")).apply {
+        if (!includeSymbol) {
+            val decimalFormat = (this as DecimalFormat).decimalFormatSymbols.apply { currencySymbol = "" }
+            decimalFormatSymbols = decimalFormat
+        }
+    }.format(this@toBrazilianCurrencyString).trim()
+}
+
+fun Date.toBrazilianStringDate(): String {
+    return SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(this)
+}

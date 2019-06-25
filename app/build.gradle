@@ -41,6 +41,7 @@ android {
 dependencies {
 
     def mockk = "1.9"
+    def gson = "2.8.5"
     def junit = "4.12"
     def assertk = "0.16"
     def room_version = "2.1.0-rc01"
@@ -79,6 +80,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
+
+    //UTIL
+    implementation "com.google.code.gson:gson:$gson"
 
     // TESTES
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version")

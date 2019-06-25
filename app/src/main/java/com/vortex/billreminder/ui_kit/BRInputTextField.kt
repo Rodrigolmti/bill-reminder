@@ -6,7 +6,6 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -39,6 +38,15 @@ class BRInputTextField : ConstraintLayout {
         setupView(attrs)
     }
 
+    override fun isEnabled(): Boolean {
+        return textViewLabel.isEnabled && editText.isEnabled
+    }
+
+    override fun setEnabled(enabled: Boolean) {
+        textViewLabel.isEnabled = enabled
+        editText.isEnabled = enabled
+    }
+
     private fun setupView(attrs: AttributeSet? = null) {
         setupLabel()
         setupEditText()
@@ -65,6 +73,7 @@ class BRInputTextField : ConstraintLayout {
         textViewLabel = TextView(context)
         textViewLabel.apply {
             safeSetTextAppearance(R.style.TextAppearance_Caption_Bold)
+            setTextColor(ContextCompat.getColorStateList(context, R.color.color_selector_enabled_gray700_gray500))
             id = R.id.tvBillInputTextFieldLabel
         }
         addView(textViewLabel)
@@ -78,6 +87,8 @@ class BRInputTextField : ConstraintLayout {
         )
         params.setMargins(0, getSizeInDp(R.dimen.margin_xxsmall), 0, 0)
         editText.apply {
+            setHintTextColor(ContextCompat.getColorStateList(context, R.color.color_selector_enabled_gray700_gray500))
+            setTextColor(ContextCompat.getColorStateList(context, R.color.color_selector_enabled_gray700_gray500))
             background = ContextCompat.getDrawable(context, R.drawable.bg_bill_input_text)
             setPadding(
                 getSizeInDp(R.dimen.margin_xsmall),

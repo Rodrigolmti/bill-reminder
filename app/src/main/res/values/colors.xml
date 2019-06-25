@@ -5,10 +5,13 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
+    <color name="colorAccentLight">#D35C82</color>
+
     <color name="geyser">#D2DAE1</color>
     <color name="gray400">#F5F6FA</color>
     <color name="gray500">#E6E7F0</color>
     <color name="gray600">#8C91A9</color>
     <color name="gray700">#6A6E81</color>
+    <color name="gray800">#4B4E5C</color>
 
 </resources>

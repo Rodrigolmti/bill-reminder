@@ -1,0 +1,52 @@
+{
+  "categories": [
+    {
+      "name": "Home",
+      "icon_name": "ic_home"
+    },
+    {
+      "name": "Education",
+      "icon_name": "ic_education"
+    },
+    {
+      "name": "Electronics",
+      "icon_name": "ic_electronics"
+    },
+    {
+      "name": "Entertainment",
+      "icon_name": "ic_entertainment"
+    },
+    {
+      "name": "Food",
+      "icon_name": "ic_food"
+    },
+    {
+      "name": "Life and Health",
+      "icon_name": "ic_life_and_health"
+    },
+    {
+      "name": "Services",
+      "icon_name": "ic_services"
+    },
+    {
+      "name": "Market",
+      "icon_name": "ic_market"
+    },
+    {
+      "name": "Transport",
+      "icon_name": "ic_transport"
+    },
+    {
+      "name": "Clothing",
+      "icon_name": "ic_clothing"
+    },
+    {
+      "name": "Travel",
+      "icon_name": "ic_travel"
+    },
+    {
+      "name": "Others",
+      "icon_name": "ic_others"
+    }
+  ]
+}

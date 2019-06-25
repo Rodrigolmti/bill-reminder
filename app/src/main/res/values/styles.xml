@@ -75,8 +75,8 @@
     </style>
 
     <style name="Currency.Value">
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textColorHint">@color/colorAccent</item>
+        <item name="android:textColor">@color/color_selector_enabled_accent_accent_light</item>
+        <item name="android:textColorHint">@color/color_selector_enabled_accent_accent_light</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -92,7 +92,7 @@
         <item name="android:gravity">center</item>
         <item name="android:foreground">?selectableItemBackground</item>
         <item name="android:background">@drawable/selector_gradient_gray400</item>
-        <item name="android:textColor">@color/color_selector_primary_button</item>
+        <item name="android:textColor">@color/color_selector_enabled_primary_button</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
         <item name="cornerRadius">@dimen/button_radius</item>
