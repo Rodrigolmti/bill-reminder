@@ -2,6 +2,8 @@ package com.vortex.billreminder.ui_kit
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -100,6 +102,17 @@ class BRInputTextField : ConstraintLayout {
             id = R.id.etBillInputTextFieldField
             maxLines = 1
         }
+
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                error = null
+            }
+        })
+
         addView(editText, params)
     }
 
@@ -160,6 +173,7 @@ class BRInputTextField : ConstraintLayout {
         }
     }
 
+    /** * Text that informs the text of the label. */
     var label: String? = null
         get() = textViewLabel.text.toString()
         set(text) {
@@ -167,8 +181,10 @@ class BRInputTextField : ConstraintLayout {
             field = text
         }
 
+    /** * Return the date selected by the user. */
     var date: Date? = null
 
+    /** * Text that informs the hint label. */
     var hint: String? = null
         get() = editText.hint.toString()
         set(text) {
@@ -176,9 +192,11 @@ class BRInputTextField : ConstraintLayout {
             field = text
         }
 
+    /** * Return the value of the field in string. */
     val value: String?
         get() = editText.text.toString()
 
+    /** * Text that informs the error of the component. If null the text will be GONE */
     var error: String? = null
         get() = textViewError.text.toString()
         set(text) {

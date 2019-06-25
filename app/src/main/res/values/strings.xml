@@ -4,6 +4,7 @@
 
     <string name="general_currency">R$</string>
 
+    <string name="add_bill_description_error">Inform a description!</string>
     <string name="add_bill_description_hint">Inform a description for your bill</string>
     <string name="add_bill_description_label">Description</string>
     <string name="add_bill_date_hint">00/00/0000</string>

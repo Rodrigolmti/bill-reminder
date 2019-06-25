@@ -32,6 +32,10 @@ class ListBillFragment : Fragment() {
 
         fabListBillFragment.setOnClickListener { findNavController().navigate(R.id.action_listBillFragment_to_addBillFragment) }
         viewModel.billListLiveDate.observe(viewLifecycleOwner, Observer { billAdapter.updateListOfBills(it) })
+
+        viewModel.errorLiveData.observe(viewLifecycleOwner, Observer {
+
+        })
     }
 
     private fun setupAdapter() {

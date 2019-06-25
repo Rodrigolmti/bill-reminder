@@ -15,7 +15,6 @@ import com.vortex.billreminder.util.MoneyMaskWatcher
 import com.vortex.billreminder.util.brlCurrency
 import com.vortex.billreminder.util.safeSetTextAppearance
 
-//TODO Fix divisor size
 class BRValueView : ConstraintLayout {
 
     private lateinit var textViewLabel: TextView
@@ -68,27 +67,6 @@ class BRValueView : ConstraintLayout {
         }
     }
 
-    var label: String? = null
-        get() = textViewLabel.text.toString()
-        set(text) {
-            takeIf { !text.isNullOrEmpty() }?.run { textViewLabel.text = text }
-            field = text
-        }
-
-    var value: Double? = null
-        get() = MoneyMaskWatcher.doubleValue(editTextValue.text.toString())
-        set(text) {
-            editTextValue.setText(value?.brlCurrency)
-            field = text
-        }
-
-    var hint: String? = null
-        get() = editTextValue.text.toString()
-        set(text) {
-            takeIf { !text.isNullOrEmpty() }?.run { editTextValue.hint = text }
-            field = text
-        }
-
     private fun setupLabel() {
         textViewLabel = TextView(context)
         textViewLabel.apply {
@@ -116,7 +94,7 @@ class BRValueView : ConstraintLayout {
 
     private fun setupDivisor() {
         val params = LayoutParams(
-            LayoutParams.MATCH_PARENT,
+            0,
             2
         )
         divisor = View(context)
@@ -157,4 +135,28 @@ class BRValueView : ConstraintLayout {
             applyTo(this@BRValueView)
         }
     }
+
+    /** * Text that informs the field of the label. */
+    var label: String? = null
+        get() = textViewLabel.text.toString()
+        set(text) {
+            takeIf { !text.isNullOrEmpty() }?.run { textViewLabel.text = text }
+            field = text
+        }
+
+    /** * Return the informed value in Double . */
+    var value: Double? = null
+        get() = MoneyMaskWatcher.doubleValue(editTextValue.text.toString())
+        set(text) {
+            editTextValue.setText(value?.brlCurrency)
+            field = text
+        }
+
+    /** * Text that informs the hint of the label. */
+    var hint: String? = null
+        get() = editTextValue.text.toString()
+        set(text) {
+            takeIf { !text.isNullOrEmpty() }?.run { editTextValue.hint = text }
+            field = text
+        }
 }

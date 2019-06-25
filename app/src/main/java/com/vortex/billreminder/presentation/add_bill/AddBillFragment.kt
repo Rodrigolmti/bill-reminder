@@ -49,7 +49,7 @@ class AddBillFragment : Fragment() {
 
                         }
                         if (failure.errors.contains(AddBillUseCase.AddBillFailure.ErrorType.INVALID_DESCRIPTION)) {
-
+                            bitAddBillDescription.error = getString(R.string.add_bill_description_error)
                         }
                     }
                 }
