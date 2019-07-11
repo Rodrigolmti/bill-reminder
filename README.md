@@ -11,7 +11,7 @@
 - koin
 - android navigation
 - room
-- juni
+- jUnit
 - mockk
 - assertk
 
