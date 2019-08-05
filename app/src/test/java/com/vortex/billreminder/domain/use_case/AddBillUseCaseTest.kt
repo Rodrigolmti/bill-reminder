@@ -2,7 +2,10 @@ package com.vortex.billreminder.domain.use_case
 
 import assertk.all
 import assertk.assertThat
-import assertk.assertions.*
+import assertk.assertions.contains
+import assertk.assertions.hasSize
+import assertk.assertions.isEqualTo
+import assertk.assertions.isInstanceOf
 import com.vortex.billreminder.domain.Failure
 import com.vortex.billreminder.domain.Result
 import com.vortex.billreminder.domain.model.Bill
@@ -76,7 +79,7 @@ class AddBillUseCaseTest {
     @Test
     fun `validate when bill has empty value`() = runBlocking {
 
-        val response = addBillUseCase.invoke(Bill(0.0, "Description"))
+        val response = addBillUseCase.invoke(Bill(value = 0.0, description = "Description"))
         assertk.assertThat(response).isInstanceOf(Result.Error::class)
 
         if (response is Result.Error) {
@@ -92,7 +95,7 @@ class AddBillUseCaseTest {
     @Test
     fun `validate when bill has empty description`() = runBlocking {
 
-        val response = addBillUseCase.invoke(Bill(35.0, ""))
+        val response = addBillUseCase.invoke(Bill(value = 35.0, description = ""))
         assertk.assertThat(response).isInstanceOf(Result.Error::class)
 
         if (response is Result.Error) {
@@ -108,7 +111,7 @@ class AddBillUseCaseTest {
     @Test
     fun `validate when both params are empty`() = runBlocking {
 
-        val response = addBillUseCase.invoke(Bill(0.0, ""))
+        val response = addBillUseCase.invoke(Bill(value = 0.0, description = ""))
         assertk.assertThat(response).isInstanceOf(Result.Error::class)
 
         if (response is Result.Error) {

@@ -7,6 +7,11 @@
     <item name="tvBillInputTextFieldError" type="id"/>
     <item name="ivBillInputTextFieldImage" type="id"/>
 
+    //SpinnerField
+    <item name="tvBillSpinnerFieldLabel" type="id" />
+    <item name="tvBillSpinnerFieldError" type="id" />
+    <item name="tvBillSpinnerFieldField" type="id" />
+
     //ValueView
     <item name="tvBillValueLabel" type="id"/>
     <item name="tvBillValueEditText" type="id"/>

@@ -9,6 +9,12 @@
         <attr name="inputType" format="integer"/>
     </declare-styleable>
 
+    <declare-styleable name="BRSpinnerField">
+        <attr name="spinnerLabel" format="string" />
+        <attr name="spinnerError" format="string" />
+        <attr name="spinnerPrompt" format="string" />
+    </declare-styleable>
+
     <declare-styleable name="BRValueView">
         <attr name="valueLabel" format="string"/>
         <attr name="valueHint" format="string"/>

@@ -27,6 +27,8 @@ class AddBillFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        lifecycle.addObserver(viewModel)
+
         btAddBill.setOnClickListener {
             val bill = Bill(
                 value = bvvAddBillValue.value,
@@ -35,6 +37,10 @@ class AddBillFragment : Fragment() {
             controlFieldInteraction(false)
             viewModel.addBill(bill)
         }
+
+        viewModel.categoriesList.observe(viewLifecycleOwner, Observer {
+
+        })
 
         viewModel.addBillLiveData.observe(viewLifecycleOwner, Observer {
             findNavController().popBackStack()
